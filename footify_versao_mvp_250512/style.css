@@ -1,0 +1,334 @@
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+#chat-container {
+  padding-top: 80px; /* ou a altura real do seu header */
+}
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: #eaf6f9;
+  height: 100vh;
+  padding-top: 80px; /* compensa a altura do header fixo */
+}
+
+/* ===== Top Bar ===== */
+.top-bar {
+  background: linear-gradient(90deg, #21c199 0%, #2b9be8 100%);
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: flex-start;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.top-bar img {
+  height: 55px;
+  width: auto;
+  max-height: 65px;
+  animation: pulseZoom 2.5s ease-in-out infinite;
+}
+
+.top-bar span {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 1.8rem;
+  letter-spacing: -0.5px;
+  color: white;
+  animation: fadeSlideIn 0.8s ease-in-out;
+}
+
+/* ===== Área do Chat ===== */
+.chat-container {
+  flex: 1;
+  padding: 2rem 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  scroll-behavior: smooth;
+}
+
+/* ===== Mensagens ===== */
+.message {
+  max-width: 70%;
+  padding: 0.9rem 1.1rem;
+  border-radius: 20px;
+  margin: 8px 0;
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+.user {
+  align-self: flex-end;
+  margin-right: 12px;
+  margin-left: auto;
+  display: flex;
+  background: transparent;
+  box-shadow: none;
+}
+
+.bot {
+  align-self: flex-start;
+  background-color: #ffffff;
+  border: 1px solid #d8f1ff;
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin-left: 12px;
+  margin-right: auto;
+}
+
+/* ===== Input de Mensagem ===== */
+.input-area {
+  display: flex;
+  padding: 1rem;
+  background: white;
+  border-top: 1px solid #c0e4ef;
+}
+
+.input-area input {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #aadbe2;
+  border-radius: 25px;
+  outline: none;
+}
+
+.input-area button {
+  margin-left: 0.5rem;
+  padding: 0.8rem 1.4rem;
+  background: linear-gradient(90deg, #21c199, #2b9be8);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.input-area button:hover {
+  filter: brightness(0.9);
+}
+
+/* ===== Digitação ===== */
+.typing {
+  font-style: normal;
+  color: #777;
+  font-size: 0.9rem;
+  background-color: #ffffff;
+  border: 1px solid #d8f1ff;
+  padding: 8px 14px;
+  border-radius: 18px;
+  align-self: flex-start;
+  max-width: fit-content;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 12px;
+}
+
+.typing-icon {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.typing-dots {
+  display: flex;
+  gap: 4px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.typing-dots span {
+  animation: blink 1.4s infinite;
+  opacity: 0.3;
+}
+
+.typing-dots span:nth-child(1) { animation-delay: 0s; }
+.typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+.typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+/* ===== Cards de Produto ===== */
+.card-bot {
+  background-color: #ffffff;
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin: 20px 0 20px 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 600px;
+  align-self: flex-start;
+  border-left: 5px solid #2b9be8;
+  animation: fadeSlideInUp 0.3s ease forwards;
+}
+
+.card-header {
+  font-weight: 700;
+  font-size: 16px;
+  color: #2b9be8;
+  border-bottom: 1px solid #d7f0fa;
+  padding-bottom: 4px;
+  margin-bottom: 4px;
+  opacity: 0;
+  animation: fadeInLine 0.3s ease forwards;
+}
+
+.card-produto {
+  font-size: 14px;
+  color: #2e2e2e;
+  opacity: 0;
+  animation: fadeInLine 0.3s ease forwards;
+}
+
+.card-link {
+  color: #2b9be8;
+  text-decoration: underline;
+  word-break: break-word;
+  animation: fadeInLine 0.3s ease forwards;
+}
+
+/* ===== Responsividade Mobile ===== */
+@media (max-width: 768px) {
+  .top-bar {
+    flex-direction: row;
+    padding: 0.8rem 1rem;
+    gap: 0.4rem;
+  }
+
+  .top-bar img {
+    height: 44px;
+  }
+
+  .top-bar span {
+    font-size: 1.5rem;
+  }
+
+  .chat-container,
+  .input-area {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .message,
+  .card-bot {
+    max-width: 100%;
+    font-size: 0.95rem;
+  }
+
+  .input-area {
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 0.8rem;
+    position: sticky;
+    bottom: 0;
+    z-index: 999;
+    background: white;
+    padding-bottom: env(safe-area-inset-bottom); /* iOS safe area */
+  }
+
+  .input-area input,
+  .input-area button {
+    width: 100%;
+    font-size: 1rem;
+    border-radius: 20px;
+  }
+
+  .input-area button {
+    padding: 0.8rem;
+  }
+
+  .chat-container {
+    padding-bottom: 120px; /* garante que input não fique escondido */
+  }
+
+  .card-header {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+}
+
+/* ===== Outros ===== */
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.message.bot {
+  display: flex;
+  align-items: flex-start;
+}
+
+.message-content {
+  background-color: #ffffff;
+  border: 1px solid #d8f1ff;
+  padding: 0.9rem 1.1rem;
+  border-radius: 20px;
+  max-width: 600px;
+  word-break: break-word;
+  white-space: pre-wrap;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.message-content.user-content {
+  background-color: #dcfce7;
+  border: 1px solid #b6e7cb;
+  color: #1b4332;
+  border-radius: 20px;
+  padding: 0.9rem 1.1rem;
+  max-width: 600px;
+  word-break: break-word;
+  white-space: pre-wrap;
+  box-shadow: none;
+}
+
+/* ===== Animações ===== */
+@keyframes fadeSlideIn {
+  0% { opacity: 0; transform: translateX(-20px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulseZoom {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeSlideInUp {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLine {
+  0% { opacity: 0; transform: translateX(-10px); }
+  100% { opacity: 1; transform: translateX(0); }
+}

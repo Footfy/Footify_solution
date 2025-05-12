@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Footify - Assistente Virtual de Calçados</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<div class="chat-widget" onclick="rolarParaChat()">
+  <button class="chat-close" onclick="fecharChat(event)">✕</button>
+  <div class="chat-balloon">
+    <p>Olá! Eu sou a Maia. Como posso te ajudar?</p>
+  </div>
+  <div class="chat-avatar">
+    <img src="https://cdn-icons-png.flaticon.com/512/4140/4140037.png" alt="Bot Avatar" />
+    <span class="chat-notification">1</span>
+  </div>
+</div>
+
+<script>
+  function rolarParaChat() {
+    const alvo = document.querySelector("#chat-container") || document.querySelector("#chat");
+    if (alvo) alvo.scrollIntoView({ behavior: "smooth" });
+  }
+
+  function fecharChat(event) {
+    event.stopPropagation();
+    document.querySelector(".chat-widget").style.display = "none";
+  }
+</script>
+
+<body>
+
+  <header>
+    <div class="header-content">
+      <div class="textos">
+        <h1>👟 Footify</h1>
+        <p>Seu assistente virtual de calçados com inteligência artificial</p>
+        <p>Encontre o calçado perfeito para você com recomendações baseadas nas suas necessidades.</p>
+        <a href="#chat" class="cta-button">💬 Conversar com a IA</a>
+      </div>
+      <div class="ilustracao">
+        <img src="https://cdn-icons-png.flaticon.com/512/3039/3039434.png" alt="Ilustração Chat IA" />
+      </div>
+    </div>
+    <svg class="onda" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 160"><path fill="#ecf8fb" fill-opacity="1" d="M0,96L60,101.3C120,107,240,117,360,106.7C480,96,600,64,720,74.7C840,85,960,139,1080,149.3C1200,160,1320,128,1380,112L1440,96L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+  </header>
+
+  <section class="section destaque">
+    <h2>Por que usar o Footify?</h2>
+    <p class="subtexto">Nosso assistente virtual utiliza inteligência artificial avançada para encontrar o calçado perfeito para você</p>
+    <div class="features">
+      <div class="feature">
+        <img src="https://cdn-icons-png.flaticon.com/512/2910/2910768.png" width="50" alt="IA">
+        <h3>IA Especializada</h3>
+        <p>Atendimento por IA treinada para sugerir calçados ideais baseados nas suas necessidades específicas.</p>
+      </div>
+      <div class="feature">
+        <img src="https://cdn-icons-png.flaticon.com/512/1827/1827504.png" width="50" alt="24/7">
+        <h3>24/7 Disponível</h3>
+        <p>Disponível 24 horas por dia, 7 dias por semana para ajudar você a qualquer momento.</p>
+      </div>
+      <div class="feature">
+        <img src="https://cdn-icons-png.flaticon.com/512/716/716784.png" width="50" alt="Produto">
+        <h3>Produtos Reais</h3>
+        <p>Baseado em produtos reais com links diretos para compra, facilitando sua decisão.</p>
+      </div>
+      <div class="feature">
+        <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" width="50" alt="Personalizado">
+        <h3>Personalizado</h3>
+        <p>Conversa personalizada que leva em conta seu nome, preferências e necessidades específicas.</p>
+      </div>
+    </div>
+  </section>
+
+<section id="exemplo-conversa" class="section">
+  <h2>Veja como é fácil</h2>
+  <p class="subtexto">Uma prévia de como é a conversa com nosso assistente virtual</p>
+  
+  <div class="chat-card">
+    <div class="chat-header">
+      <span class="status-dot"></span> <strong>Footify – Assistente de Calçados</strong>
+    </div>
+
+    <div class="chat-message bot">
+      <p>Olá! Sou o assistente virtual do Footify. Como posso ajudar você a encontrar o calçado perfeito hoje?</p>
+    </div>
+
+    <div class="chat-message user">
+      <span class="user-icon">👤</span>
+      <p>Estou procurando um tênis para corrida. Tenho problemas de pronação.</p>
+    </div>
+
+    <div class="chat-message bot">
+      <p>Entendi! Para corredores com pronação, recomendo tênis com suporte de estabilidade. Qual é o seu orçamento e com que frequência você corre?</p>
+    </div>
+
+    <div class="chat-message user">
+      <span class="user-icon">👤</span>
+      <p>Meu orçamento é até R$ 500 e corro 3 vezes por semana.</p>
+    </div>
+
+    <div class="chat-message bot">
+      <p>Perfeito! Com base nas suas necessidades, recomendo o modelo <strong>StabilityRunner Pro</strong>. Ele oferece excelente suporte para pronação, amortecimento para corridas e está dentro do seu orçamento (R$ 459,90).</p>
+    </div>
+  </div>
+</section>
+
+
+  <section class="section depoimentos">
+    <h2>O que nossos usuários dizem</h2>
+    <p class="subtexto">Pessoas reais que encontraram o calçado perfeito com a ajuda do Footify</p>
+    <div class="cards-depoimentos">
+      <div class="card-depoimento">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>"Incrível como o Footify entendeu exatamente o que eu precisava!"</p>
+        <h4>Carlos Mendes</h4>
+        <span>Encontrou o tênis ideal em 5 minutos</span>
+      </div>
+      <div class="card-depoimento">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>"Precisava de um sapato confortável para o trabalho. Melhor compra que fiz!"</p>
+        <h4>Amanda Oliveira</h4>
+        <span>Conforto garantido para o expediente</span>
+      </div>
+      <div class="card-depoimento">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>"Meu filho tem pés largos e foi difícil achar o modelo certo. O Footify acertou em cheio."</p>
+        <h4>Renata Santos</h4>
+        <span>Calçado certo para necessidades específicas</span>
+      </div>
+    </div>
+  </section>
+  <section class="section chamada-para-acao">
+    <h2>Pronto para encontrar o calçado perfeito?</h2>
+    <p class="subtexto">Experimente agora mesmo e descubra como é fácil encontrar o que você precisa!</p>
+    
+
+  <footer>
+    <p>© 2025 Footify. Projeto acadêmico desenvolvido por Richard Santos.</p>
+    <p>Seu assistente virtual de calçados com inteligência artificial.</p>
+  </footer>
+
+  <a href="#chat" class="floating-button" title="Fale com a IA">💬</a>
+
+</body>
+</html>

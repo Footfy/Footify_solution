@@ -1,0 +1,15 @@
+services:
+  footify_api:
+    build:
+      context: ../back
+    container_name: footify_api
+    ports:
+      - "8000:8000"
+    networks:
+      - docker_footify_network
+    environment:
+      DATABASE_URL: postgresql://footify:Footify123@postgres_db:5432/footifydb
+
+networks:
+  docker_footify_network:
+    external: true
